@@ -20,6 +20,7 @@ app.get("/api/:username", async (req, res) => {
 		let data = await getCache(username);
 
 		if (data !== null) {
+			console.log("from Redis")
 			return res.json({ data });
 		}
 
@@ -28,6 +29,7 @@ app.get("/api/:username", async (req, res) => {
 
 		if(data !== null) {
 			await setCache(username, JSON.stringify(data));
+			console.log("from Server")
 			return res.json({ data });
 		}
 

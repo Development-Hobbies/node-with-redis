@@ -1,5 +1,5 @@
 const redis = require("async-redis");
-const client = redis.createClient(6379);
+const client = redis.createClient();
 
 const expirationTime = 60 * 60;
 
